@@ -39,10 +39,23 @@ Route::prefix('/category')->group(
         Route::delete('/delete/{id}', [CategoryController::class, 'delete'])->name('categoryDelete'); // ruta http de Delete category
     }
 );
-
 Route::prefix('/customer')->group(
     function () {
-        Route::get('/', function () {
-        })->name('customerIndex'); //esto es la tabla de customer 
+        Route::get('/', [CustomerController::class, 'index'])->name('customerIndex'); //esto es la tabla de customer 
+
+        Route::get('/register', [CustomerController::class, 'register'])->name('customerRegister'); // formulario de ingreso 
+
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('customerEdit');/* formulario de editar (difiere de update, en que 
+        edit es la forma visual de cambiar datos y update es registrar esos datos cambiados en la bd) */
+
+
+        // Rutas http, peticiones al servidor
+        Route::post('/create', [CustomerController::class, 'create'])->name('customerCreate'); // ruta http de Create customer
+
+        // Route::get('/read', [CustomerController::class, ''])->name('customerRead'); //ruta http de Read customer
+
+        Route::patch('/update/{id}', [CustomerController::class, 'update'])->name('customerUpdate'); // ruta http de Update customer
+
+        Route::delete('/delete/{id}', [CustomerController::class, 'delete'])->name('customerDelete'); // ruta http de Delete customer
     }
 );
