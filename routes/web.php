@@ -44,6 +44,5 @@ Route::prefix('/customer')->group(
     function () {
         Route::get('/', function () {
         })->name('customerIndex'); //esto es la tabla de customer 
-
     }
 );
