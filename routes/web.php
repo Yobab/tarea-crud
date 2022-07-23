@@ -36,7 +36,6 @@ Route::prefix('/category')->group(
         // })->name('categoryRead'); //ruta http de Read category
 
         Route::patch('/update/{id}', [CategoryController::class, 'update'])->name('categoryUpdate'); // ruta http de Update category
-
         Route::delete('/delete/{id}', [CategoryController::class, 'delete'])->name('categoryDelete'); // ruta http de Delete category
     }
 );
